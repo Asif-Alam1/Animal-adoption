@@ -1,13 +1,39 @@
 * {
   box-sizing: border-box;
-  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  /* Light theme colors */
+  --color-bg: #81a69b;
+  --color-text: #333;
+  --color-contrast: #faeff0;
+  --color-border: #333;
+  --color-accent: #ad343e;
+  --color-bg-dark: #122622;
+  --color-text-dark: #333;
+  --color-contrast-dark: #2c3e50;
+  --color-border-dark: #fff;
+  --color-accent-dark: #e74c3c;
+  --background-image: url(http://pets-images.dev-apis.com/pets/wallpaperB.jpg);
 }
 
 body {
-  background-color: #81a69b;
-  background-image: url(http://pets-images.dev-apis.com/pets/wallpaperB.jpg);
+  background-color: var(--color-bg);
+  background: var(--background-image);
   margin: 0;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Global styles for light theme */
+* {
+  color: var(--color-text);
+}
+
+/* Global styles for dark theme */
+.dark * {
+  color: var(--color-text-dark);
 }
 
 .search-params {
@@ -15,9 +41,14 @@ body {
   margin: 0 auto;
 }
 
+label {
+  display: block;
+  width: 60px;
+}
+
 .search-params form {
   border-radius: 6px;
-  background: #faeff0;
+  background: var(--color-contrast);
   box-shadow: 0px 0px 12px #aaa, -0px -0px 12px #fff;
   width: 360px;
   margin: 0px 25px 0px 0px;
@@ -27,7 +58,7 @@ body {
 
 .search {
   border-radius: 6px;
-  background: #faeff0;
+  background: var(--color-contrast);
   box-shadow: 0px 0px 12px #aaa, -0px -0px 12px #fff;
   width: 715px;
   padding: 15px;
@@ -41,7 +72,7 @@ body {
   padding: 15px;
   margin-bottom: 25px;
   border-radius: 6px;
-  background: #faeff0;
+  background: var(--color-contrast);
   box-shadow: 0px 0px 12px #aaa, -0px -0px 12px #fff;
 }
 
@@ -80,7 +111,7 @@ body {
   white-space: nowrap;
   font-weight: normal;
   font-size: 30px;
-  color: #333;
+  color: var(--color-text);
   width: 95%;
   overflow: hidden;
   margin: 0;
@@ -108,7 +139,7 @@ header > a,
 }
 
 header a {
-  color: #333;
+  color: var(--color-text);
   font-size: 3px;
   text-decoration: none;
   font-weight: bold;
@@ -132,7 +163,7 @@ header {
 
 .details h1 {
   text-align: center;
-  color: #333;
+  color: var(--color-text);
   font-size: 60px;
   margin: 5px 0px;
 }
@@ -166,11 +197,11 @@ header {
   display: inline-block;
   margin: 15px;
   cursor: pointer;
-  border: 2px solid #333;
+  border: 2px solid var(--color-text);
 }
 
 .carousel-smaller > img.active {
-  border-color: #333;
+  border-color: var(--color-text);
   opacity: 0.6;
 }
 
@@ -193,9 +224,9 @@ header {
 .details button {
   background-color: #ad343e;
   padding: 5px 25px;
-  color: white;
+  color: var(--color-contrast);
   font-size: 18px;
-  border: #333 1px solid;
+  border: var(--color-text) 1px solid;
   border-radius: 5px;
   display: block;
   margin: 0 auto;
@@ -238,12 +269,12 @@ header {
 }
 
 #modal > div {
-  background-color: white;
+  background-color: var(--color-contrast);
   max-width: 500px;
   padding: 15px;
   text-align: center;
   border-radius: 30px;
-  background: #faeff0;
+  background: var(--color-contrast);
 }
 
 #modal .buttons button {
@@ -365,3 +396,22 @@ form .pet {
   font-size: 34px;
 }
 
+/* Add this to your existing CSS */
+.toggle-theme {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.toggle-theme button {
+  background-color: var(--color-accent);
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.toggle-theme button:hover {
+  background-color: var(--color-accent-dark);
+}
